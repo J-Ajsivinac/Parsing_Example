@@ -1,0 +1,14 @@
+<programa> ::= <comando> { <comando> }
+
+<comando> ::= <claves>
+            | <imprimir>
+
+<claves> ::= "Claves" "=" "[" <lista_cadenas> "]" ";"
+
+<lista_cadenas> ::= <cadena> { "," <cadena> }
+                  |  epsilon
+
+<imprimir> ::= "imprimir" "(" <cadena> ")" ";"
+
+
+<cadena> ::= STRING_LITERAL
