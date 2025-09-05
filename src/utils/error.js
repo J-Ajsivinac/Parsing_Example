@@ -1,4 +1,4 @@
-import { Expression } from "./expression.js";
+import Expression from "../interfaces/expression.js";
 
 /*
  * Clase para manejar errores en la expresión

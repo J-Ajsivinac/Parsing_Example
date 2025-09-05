@@ -1,4 +1,4 @@
-import Expression from "../interfaces/Expression";
+import Expression from "../interfaces/expression.js";
 
 /*
  * Clase para representar un token en el analizador léxico

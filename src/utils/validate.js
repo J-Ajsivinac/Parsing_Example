@@ -8,21 +8,54 @@ export class ValidateChars {
     }
 
     static isNumber(char) {
-        return /^[0-9]$/.test(char);
+        return /^\d$/.test(char);
     }
 
     static isWhitespace(char) {
-        const spaces = ["\t", "\n", " "];
-        return spaces.includes(char);
+        return /^[\t\n ]$/.test(char);
     }
 
     static isDelimiter(char) {
-        const delimiters = ['"', "\n", "\t", " ", ",", "}", "{", "=", "(", ")"];
+        const delimiters = [
+            '"',
+            "'",
+            "\n",
+            "\t",
+            " ",
+            ",",
+            "}",
+            "{",
+            "=",
+            "(",
+            ")",
+            ";",
+            "[",
+            "]",
+            "#",
+            undefined,
+        ];
         return delimiters.includes(char);
     }
 
     static isNumericDelimiter(char) {
-        const numericDelimiters = ['"', "\n", "\t", " ", ",", "}", ")"];
+        const numericDelimiters = [
+            '"',
+            "'",
+            "\n",
+            "\t",
+            " ",
+            ",",
+            "}",
+            "{",
+            "=",
+            "(",
+            ")",
+            ";",
+            "[",
+            "]",
+            "#",
+            undefined,
+        ];
         return numericDelimiters.includes(char);
     }
 }
