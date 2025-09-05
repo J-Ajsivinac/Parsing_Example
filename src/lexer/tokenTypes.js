@@ -6,8 +6,6 @@ export const TokenTypes = Object.freeze({
     // Palabras reservadas
     KEYWORD_KEYS: 1,
     KEYWORD_PRINT: 12,
-    KEYWORD_AVERAGE: 15,
-    KEYWORD_COUNTIF: 16,
 
     // Símbolos y operadores
     EQUALS: 2, // =
