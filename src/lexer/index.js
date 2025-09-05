@@ -85,6 +85,9 @@ export class Lexer {
             } else if (char === "\n") {
                 this.fila += 1;
                 this.columna = 1;
+            } else if (char === "\r") {
+                // Ignorar retorno de carro
+                this.columna = 1;
             } else if (char === " ") {
                 this.columna += 1;
             } else {
