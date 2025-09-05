@@ -69,6 +69,7 @@ class Parser {
             )
         ) {
             this._saltarHastaToken(tipoEsperado);
+            this._avanzar(); // consumir token de sincronización
         }
 
         return false;
@@ -152,6 +153,7 @@ class Parser {
 
         if (!token || token.tipo === TokenTypes.RIGHT_BRACKET) return true;
 
+        // Primer string
         if (
             !this._esperarToken(
                 TokenTypes.STRING_LITERAL,
@@ -159,14 +161,26 @@ class Parser {
             )
         ) {
             this._saltarHastaToken(TokenTypes.RIGHT_BRACKET);
+            this._avanzar(); // consumir el ']'
             return false;
         }
 
         while (true) {
             token = this._tokenActual();
-            if (!token || token.tipo !== TokenTypes.COMMA) break;
+            if (!token || token.tipo === TokenTypes.RIGHT_BRACKET) break;
+
+            if (token.tipo !== TokenTypes.COMMA) {
+                this._crearError(
+                    "Se esperaba ',' entre los elementos de la lista",
+                    token
+                );
+                this._saltarHastaToken(TokenTypes.RIGHT_BRACKET);
+                // this._avanzar(); // consumir el ']'
+                return false;
+            }
 
             this._avanzar(); // consumir coma
+
             if (
                 !this._esperarToken(
                     TokenTypes.STRING_LITERAL,
@@ -174,6 +188,7 @@ class Parser {
                 )
             ) {
                 this._saltarHastaToken(TokenTypes.RIGHT_BRACKET);
+                this._avanzar(); // consumir el ']'
                 return false;
             }
         }
