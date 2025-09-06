@@ -11,7 +11,6 @@ export class Lexer {
         this.fila = 1;
         this.columna = 1;
         this.buffer = "";
-        this.comAbierto = false;
 
         // Palabras reservadas
         this.patterns = new Map([
@@ -167,7 +166,6 @@ export class Lexer {
         if (char === '"') {
             this.buffer = char;
             this.estado = 8;
-            this.comAbierto = true;
             return cadena.slice(1);
         }
 
@@ -175,7 +173,6 @@ export class Lexer {
         if (char === "'") {
             this.buffer = char;
             this.estado = 18;
-            this.comAbierto = true;
             return cadena.slice(1);
         }
 
@@ -336,7 +333,6 @@ export class Lexer {
             this.buffer += char;
             this._agregarToken(TokenTypes.STRING_LITERAL, this.buffer);
             this.buffer = "";
-            this.comAbierto = false;
             return cadena.slice(1);
         }
 
@@ -346,7 +342,6 @@ export class Lexer {
             this.columna = 1;
             this.estado = 1;
             this.buffer = "";
-            this.comAbierto = false;
             return cadena.slice(1);
         }
 
@@ -364,7 +359,6 @@ export class Lexer {
             this.buffer += char;
             this._agregarToken(TokenTypes.STRING_LITERAL, this.buffer);
             this.buffer = "";
-            this.comAbierto = false;
             return cadena.slice(1);
         }
 
@@ -374,7 +368,6 @@ export class Lexer {
             this.columna = 1;
             this.estado = 1;
             this.buffer = "";
-            this.comAbierto = false;
             return cadena.slice(1);
         }
 
