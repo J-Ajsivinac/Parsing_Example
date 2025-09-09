@@ -2,6 +2,13 @@ import { Lexer } from "./src/lexer/index.js";
 import Parser from "./src/parser/index.js";
 import { readerFile } from "./src/utils/fileReader.js";
 
+/*
+ * Función principal para ejecutar el análisis léxico y sintáctico.
+ * Lee un archivo de entrada, realiza el análisis léxico para generar tokens,
+ * y luego realiza el análisis sintáctico para validar la estructura.
+ * Imprime los tokens generados y cualquier error encontrado durante ambos análisis.
+ */
+
 function main() {
     const rutaArchivo = "./test.txt";
     const contenido = readerFile(rutaArchivo);

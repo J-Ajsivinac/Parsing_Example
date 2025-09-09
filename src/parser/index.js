@@ -1,6 +1,18 @@
 import { TokenTypes } from "../lexer/tokenTypes.js";
 import { Error } from "../utils/error.js";
 
+/*
+ * Clase para el análisis sintáctico (parsing) de una lista de tokens.
+ * Parámetros:
+ *  - listaTokens: Lista de tokens generada por el lexer.
+ * Métodos principales:
+ * - analizar(): Realiza el análisis sintáctico y devuelve una lista de errores encontrados.
+ * - imprimirErrores(): Imprime los errores encontrados durante el análisis.
+ * - esValido(): Devuelve true si no se encontraron errores, false en caso contrario.
+ * Estrategia de recuperación de errores:
+ * - Al encontrar un error, se intenta avanzar hasta el siguiente token de sincronización (p.ej., punto y coma o cierre de llave).
+ */
+
 class Parser {
     constructor(listaTokens) {
         this.tokens = listaTokens;

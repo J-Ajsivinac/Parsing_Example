@@ -3,6 +3,24 @@ import { ValidateChars } from "../utils/validate.js";
 import { Token } from "./token.js";
 import { TokenTypes } from "./tokenTypes.js";
 
+/*
+ * Clase para el análisis léxico (tokenización) de una cadena de entrada.
+ * Utiliza un autómata finito determinista (AFD) para reconocer patrones.
+ * Parámetros:
+ *  - cadena: Cadena de entrada a analizar.
+ * Métodos principales:
+ * - analizar(cadena): Realiza el análisis léxico y devuelve una lista de tokens y errores encontrados.
+ * - obtenerErrores(): Devuelve la lista de errores encontrados durante el análisis.
+ * - tieneErrores(): Devuelve true si se encontraron errores, false en caso contrario.
+ * Estrategia de manejo de errores:
+ * - Al encontrar un carácter no reconocido, se genera un error y se continúa con el siguiente carácter.
+ * - Los comentarios (líneas que comienzan con #) son ignorados y no generan tokens ni errores.
+ * - Los strings deben estar correctamente cerrados; de lo contrario, se genera un error.
+ * - Los números deben ser válidos (enteros o reales); de lo contrario, se genera un error.
+ * - Los identificadores deben comenzar con una letra y pueden contener letras y números; de lo contrario, se genera un error.
+ * - Se utilizan expresiones regulares para validar letras, números y delimitadores.
+ */
+
 export class Lexer {
     constructor() {
         this.tokens = [];

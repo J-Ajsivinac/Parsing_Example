@@ -1,5 +1,7 @@
 /*
  * Utilidades para validación de caracteres
+ * Parámetros:
+ *   - char: Carácter a validar.
  */
 
 export class ValidateChars {
