@@ -1,3 +1,4 @@
+# Este es un comentario
 Claves = ["12" ,"3"] ; 
 imprimir ("Hola Mundo");
 imprimir (123); &

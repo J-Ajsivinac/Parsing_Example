@@ -376,6 +376,9 @@ export class Lexer {
     }
 
     // Método  x_2 (comentarios con #)
+    // No se generan tokens, se ignora todo hasta el fin de línea
+    // un comentario inicia con # y termina con \n
+    // Un comentario no genera tokens ni errores
     x_2(cadena) {
         const char = cadena[0];
 

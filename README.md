@@ -45,6 +45,11 @@ Para comenzar a trabajar con este proyecto, sigue estos pasos:
 
 Este comando ejecutará el análisis léxico y sintáctico en el archivo de prueba `test.txt`.
 
+## AFD
+Donde: L = [A-Za-z] D = [0-9] CE = [!$%&/()...] Sin inculir el salto de linea CE1 = [!$%&/()...]
+
+![alt text](./imgs/afd.png)
+
 ## Gramática del Lenguaje
 
 El lenguaje que este analizador procesa está definido por la siguiente gramática BNF (Backus-Naur Form):
@@ -89,7 +94,6 @@ El proyecto está organizado de la siguiente manera:
     │   └── tokenTypes.js # Definición de tipos de tokens
     ├── parser/         # Componentes del analizador sintáctico
     │   ├── index.js    # Implementación del parser
-    │   └── test.js
     └── utils/          # Utilidades
         ├── error.js    # Manejo de errores
         ├── fileReader.js # Lectura de archivos
