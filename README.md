@@ -43,9 +43,26 @@ Para comenzar a trabajar con este proyecto, sigue estos pasos:
     pnpm run start
     ```
 
+## Diagrama de Flujo del Proyecto
+
+```
+Archivo de entrada (test.txt)
+    ↓
+Lectura de archivo (fileReader.js)
+    ↓
+Análisis Léxico (lexer/index.js)
+    ↓
+Lista de Tokens (token.js con tipos de tokenTypes.js)
+    ↓
+Análisis Sintáctico (parser/index.js)
+    ↓
+Resultado: Éxito o Lista de Errores (error.js)
+```
+
 Este comando ejecutará el análisis léxico y sintáctico en el archivo de prueba `test.txt`.
 
 ## AFD
+
 Donde: L = [A-Za-z] D = [0-9] CE = [!$%&/()...] Sin inculir el salto de linea CE1 = [!$%&/()...]
 
 ![alt text](./imgs/afd.png)
