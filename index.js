@@ -24,7 +24,7 @@ function main() {
     console.log("Errores:", result.errores);
 
     const parser = new Parser(result.tokens);
-    const erroresSintacticos = parser.analizar();
+    const _ = parser.analizar();
 
     if (parser.esValido()) {
         console.log("Análisis sintáctico exitoso.");
